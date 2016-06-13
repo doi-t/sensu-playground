@@ -1,0 +1,24 @@
+{
+    "name": "sensu-client",
+    "description": "This is a sensu-client role for sensu-server itself",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "default_attributes": {
+    },
+    "override_attributes": {
+        "sensu": {
+            "log_level": "info",
+            "rabbitmq": {
+                "host": "192.168.33.77",
+                "port": 5672,
+                "vhost": "/sensu"
+            }
+        }
+    },
+    "run_list": [
+        "role[sensu-base]",
+        "role[sensu-secret]",
+        "recipe[sensu-wrapper::default]",
+        "recipe[sensu-wrapper::sensu-client]"
+    ]
+}

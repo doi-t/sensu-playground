@@ -1,0 +1,27 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_zero
+
+platforms:
+  - name: centos-6.7
+
+suites:
+  - name: sensu-server
+    driver:
+      network:
+      - ["forwarded_port", {guest: 3000, host: 3030}]
+      - ["private_network", { ip: "192.168.33.77"  }]
+    run_list:
+      - role[sensu-server]
+    attributes:
+
+  - name: sensu-client
+    driver:
+      network:
+      - ["private_network", { ip: "192.168.33.78"  }]
+    run_list:
+      - role[sensu-client]
+    attributes:

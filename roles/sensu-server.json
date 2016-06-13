@@ -1,0 +1,28 @@
+{
+    "name": "sensu-server",
+    "description": "This is a sensu-server role",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "default_attributes": {
+    },
+    "override_attributes": {
+        "sensu": {
+            "log_level": "info",
+            "rabbitmq": {
+                "host": "localhost",
+                "port": 5672,
+                "vhost": "/sensu"
+            }
+        },
+        "uchiwa": {
+            "version": "0.14.2-1"
+        }
+    },
+    "run_list": [
+        "role[sensu-base]",
+        "role[sensu-secret]",
+        "recipe[sensu-wrapper::default]",
+        "recipe[sensu-wrapper::sensu-server]",
+        "recipe[sensu-wrapper::sensu-client]"
+    ]
+}

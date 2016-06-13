@@ -1,0 +1,12 @@
+.vagrant
+/cookbooks
+/vendor
+
+# Bundler
+bin/*
+.bundle/*
+
+.kitchen/
+.kitchen.local.yml
+
+roles/sensu-secret.json

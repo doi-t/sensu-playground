@@ -1,0 +1,12 @@
+include_recipe 'sensu::default'
+include_recipe 'sensu::redis'
+include_recipe 'sensu::rabbitmq'
+include_recipe 'sensu::api_service'
+include_recipe 'sensu::server_service'
+include_recipe 'sensu-wrapper::handlers'
+include_recipe 'sensu-wrapper::plugins'
+include_recipe 'sensu-wrapper::checks'
+include_recipe 'sensu-wrapper::client'
+include_recipe 'sensu::client_service'
+
+include_recipe 'uchiwa::default'

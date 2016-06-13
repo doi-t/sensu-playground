@@ -1,0 +1,5 @@
+default['slack']['webhook_url'] = ''
+default['slack']['channel'] ='#sensu-notification'
+default['slack']['message_prefix'] = ':fire:'
+default['slack']['surround'] = ''
+default['slack']['bot_name'] ='sensu'

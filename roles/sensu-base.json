@@ -1,0 +1,16 @@
+{
+    "name": "sensu-base",
+    "description": "This is a sensu-base role",
+    "chef_type": "role",
+    "json_class": "Chef::Role",
+    "default_attributes": {
+    },
+    "override_attributes": {
+        "sensu": {
+            "use_ssl": false,
+            "use_embedded_ruby": true
+        }
+    },
+    "run_list": [
+    ]
+}
